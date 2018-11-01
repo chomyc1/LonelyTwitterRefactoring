@@ -7,11 +7,10 @@ import java.util.Date;
 public class NormalLonelyTweet extends LonelyTweet implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	protected Date tweetDate;
-	protected String tweetBody;
+	private Date tweetDate; // Access changed to private (was protected, larger scope than necessary)
+	private String tweetBody; // Access changed to private (was protected, larger scope than necessary)
 
-	public NormalLonelyTweet() {
-	}
+	// Had a NormalLonelyTweet() constructor; this was unused.
 
 	public NormalLonelyTweet(String text, Date date) {
 		this.tweetDate = date;
@@ -42,11 +41,10 @@ public class NormalLonelyTweet extends LonelyTweet implements Serializable {
 	}
 
 	public boolean isValid() {
-		if (tweetBody.trim().length() == 0
-				|| tweetBody.trim().length() > 10) {
+		int tweetLength = tweetBody.trim().length();
+		if (tweetLength == 0 || tweetLength > 10) { // Simplified the if statement by using a new tweetLength
 			return false;
 		}
-
 		return true;
 	}
 

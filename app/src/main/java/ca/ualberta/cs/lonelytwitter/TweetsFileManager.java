@@ -17,9 +17,9 @@ import ca.ualberta.cs.lonelytwitter.lonelytweet.LonelyTweet;
 public class TweetsFileManager {
 
 	private final String FILENAME = "file.sav";
-	private Context ctx;
+	final private Context ctx; // Changed to final, this value does not change
 
-	public TweetsFileManager(Context ctx) {
+	protected TweetsFileManager(Context ctx) { // Changed access to protected (was public, larger scope than needed)
 		this.ctx = ctx;
 	}
 
